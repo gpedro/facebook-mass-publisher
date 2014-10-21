@@ -7,7 +7,7 @@ Warning: This tool was created just to share knowledge, interesting links and co
 # Requirements
 
 1. [Facebook App](https://developers.facebook.com/)
-2, Hosting with HTTPS
+2. Hosting with HTTPS
 
 # Configuration
 `js/script.js:116`
