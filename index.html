@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook Publisher</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-tokenfield.min.css">
+	<link rel="stylesheet" href="css/tokenfield-typeahead.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-12">
+			<p>Olá <span id="name">Visitante</span>. Clique aqui para <span class="btn btn-info" id="login">entrar</span></p>
+		</div>
+		<div class="col-md-12">
+			<br>
+			<div class="form-group">
+				<p>Grupo</p>
+				<input type="text" id="groups" class="form-control">
+			</div>
+
+
+			<div class="form-group">
+				<p>Link</p>
+				<input type="text" id="link" class="form-control">
+			</div>
+
+
+			<div class="form-group">
+				<p>Mensagem</p>
+				<input type="text" id="message" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-success" id="send">Enviar</button>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="row" id="queue">
+			</div>
+		</div>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/typeahead.bundle.min.js"></script>
+	<script src="js/bootstrap-tokenfield.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
