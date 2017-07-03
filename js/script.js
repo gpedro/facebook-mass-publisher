@@ -53,23 +53,54 @@ $(document).ready(function() {
 		});
 	}
 
+
+	var done = false;
+	var optionsxablau = [];
 	var getData = function() {
 		FB.api('/me?fields=name,groups{id,name}', function(response) {
 			$('#name').text(response.name);
 			$('#login').text('sair');
 
 			var groups = response.groups.data;
-			var options = [];
+			var more = [];
+
+			if (response.groups.hasOwnProperty('paging') && response.groups.paging.hasOwnProperty('next')) {
+				next(response.groups.paging.next);
+			}
+
+			var gg = setInterval(function () {
+				if (done) {
+					console.info("xablau", optionsxablau)
+					buildtokens(optionsxablau);
+					clearInterval(gg);
+				}
+			}, 500);
+
+		});
+	};
+
+	var next = function (url) {
+		$.get(url).then(function (response) {
+			var groups = response.data;
 			$.each(groups, function(index, group) {
-				options.push({'value': group.id, 'label': group.name});
+				optionsxablau.push({'value': group.id, 'label': group.name});
 			});
 
+			if (response.hasOwnProperty('paging') && response.paging.hasOwnProperty('next')) {
+				next(response.paging.next);
+			} else {
+				done = true;
+			}
+		})
+	}
+
+	var buildtokens = function (options) {
 			var engine = new Bloodhound({
 				local: options,
 				datumTokenizer: function(d) {
-					return Bloodhound.tokenizers.whitespace(d.label);
+					return Bloodhound.tokenizers.whitespace(d.label); 
 				},
-				queryTokenizer: Bloodhound.tokenizers.whitespace,
+				queryTokenizer: Bloodhound.tokenizers.whitespace,   
 			});
 
 			engine.initialize();
@@ -97,8 +128,7 @@ $(document).ready(function() {
 					$(e.relatedTarget).addClass('invalid');
 				}
 			});
-		});
-	};
+	}
 
 	var statusChangeCallback = function(response) {
 		if(response.status == 'connected') {
