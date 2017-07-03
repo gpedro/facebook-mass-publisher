@@ -1,0 +1,76 @@
+.wrapper {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .container {
+    max-width: 80rem;
+}
+
+header {
+    background-color: #f4f5f6;
+}
+
+header .container {
+    border-top: 0;
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+    position: relative;
+    text-align: center;
+}
+
+.title {
+    font-size: 4.6rem;
+    line-height: 1.2;
+}
+
+.publisher {
+    padding-top: 1rem;
+}
+
+.loader .sk-child {
+    background-color: #9b4dca;
+}
+
+.button.floating-right {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+.button.floating-left {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+}
+
+.queued {
+    background-color: lightskyblue;
+}
+
+.published {
+    background-color: lightgreen;
+}
+
+.reports > .column {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #f4f5f6;
+}
+
+.reports .report-success {
+    color: #2ecc71;
+}
+.reports .report-error {
+    color: #e74c3c;
+}
+
+.reports p {
+    margin: 0;
+}
+
+.reports h4 {
+    margin: 0;
+    font-size: 5rem;
+}
